@@ -1,0 +1,98 @@
+/* ============================================
+   BENEFITS SECTION — Kalova UX/UI
+   Yellow banner header, orange badge, 4-card grid
+   ============================================ */
+
+.benefits {
+  padding: 5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section header strip */
+.benefits__header {
+  background: var(--color-yellow);
+  padding: 1.2rem 3rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+}
+.benefits__badge {
+  background: var(--color-orange);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+.benefits__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-teal);
+  letter-spacing: 2px;
+  margin: 0;
+  line-height: 1;
+}
+
+/* 4-column grid */
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Benefit card */
+.benefit-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  transition: transform 0.35s, box-shadow 0.35s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 4px solid var(--color-teal);
+}
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(30,173,181,0.18);
+}
+.benefit-card__icon {
+  width: 52px;
+  height: 52px;
+  color: var(--color-teal);
+  flex-shrink: 0;
+}
+.benefit-card:nth-child(2) { border-top-color: var(--color-magenta); }
+.benefit-card:nth-child(2) .benefit-card__icon { color: var(--color-magenta); }
+.benefit-card:nth-child(3) { border-top-color: var(--color-orange); }
+.benefit-card:nth-child(3) .benefit-card__icon { color: var(--color-orange); }
+.benefit-card:nth-child(4) { border-top-color: var(--color-yellow); border-top-color: #E4C900; }
+.benefit-card:nth-child(4) .benefit-card__icon { color: #bda000; }
+.benefit-card__name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  color: var(--color-dark);
+  margin: 0;
+}
+.benefit-card__desc {
+  font-family: var(--font-body);
+  color: var(--color-gray-text);
+  font-size: 0.97rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .benefits__header { padding: 1rem 1.5rem; }
+}

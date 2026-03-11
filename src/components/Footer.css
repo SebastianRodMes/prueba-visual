@@ -1,0 +1,131 @@
+/* ============================================
+   FOOTER — Kalova UX/UI
+   Dark background, gradient top border, brand colors
+   ============================================ */
+
+.footer {
+  background: var(--color-dark);
+  color: var(--color-gray-mid);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient top border */
+.footer::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-magenta), var(--color-yellow), var(--color-teal));
+}
+
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Brand column */
+.footer__brand-logo {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+.footer__brand-logo span:first-child { color: var(--color-magenta); }
+.footer__brand-logo span:last-child  { color: var(--color-teal); }
+.footer__brand-script {
+  font-family: var(--font-script);
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.5rem;
+}
+.footer__socials {
+  display: flex;
+  gap: 1rem;
+}
+.footer__social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+.footer__social-link:hover {
+  border-color: var(--color-magenta);
+  color: var(--color-magenta);
+  background: rgba(232,25,122,0.1);
+}
+
+/* Nav/Info columns */
+.footer__col-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 2.5px;
+  color: var(--color-yellow);
+  margin: 0 0 1.2rem;
+}
+.footer__nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.footer__nav-link {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+.footer__nav-link:hover { color: var(--color-teal); }
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.7rem;
+}
+.footer__contact-item svg { color: var(--color-teal); flex-shrink: 0; }
+.footer__contact-item a { color: inherit; text-decoration: none; transition: color 0.3s; }
+.footer__contact-item a:hover { color: var(--color-teal); }
+
+/* Bottom bar */
+.footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer__copy {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.3);
+}
+.footer__copy span { color: var(--color-magenta); }
+
+@media (max-width: 768px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  .footer__inner { grid-template-columns: 1fr; }
+  .footer__bottom { flex-direction: column; text-align: center; }
+}

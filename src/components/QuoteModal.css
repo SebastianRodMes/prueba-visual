@@ -1,0 +1,193 @@
+/* ============================================
+   QUOTE MODAL — Kalova UX/UI
+   Glassmorphic, dark header with brand blobs
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  touch-action: none;
+  animation: fadeIn 0.25s ease-out;
+}
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15,15,20,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.modal {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 2.5rem;
+  width: 100%;
+  max-width: 640px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+  animation: fadeIn 0.35s ease-out;
+}
+
+/* Dark header */
+.modal__head {
+  background: var(--color-dark);
+  padding: 2.2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.modal__head-blob1 {
+  position: absolute;
+  top: -3rem; right: -3rem;
+  width: 180px; height: 180px;
+  background: var(--color-magenta);
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.55;
+}
+.modal__head-blob2 {
+  position: absolute;
+  bottom: -3rem; left: -3rem;
+  width: 140px; height: 140px;
+  background: var(--color-teal);
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.55;
+}
+.modal__head-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.modal__title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.modal__title span { color: var(--color-yellow); }
+.modal__subtitle {
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.55);
+  font-size: 0.95rem;
+  margin: 0.4rem 0 0;
+}
+.modal__close {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+.modal__close:hover { background: rgba(255,255,255,0.2); }
+
+/* Form body */
+.modal__body {
+  padding: 2rem 2.5rem;
+}
+.modal__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.modal__field--full { grid-column: 1 / -1; }
+.modal__label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-gray-text);
+}
+.modal__input,
+.modal__select,
+.modal__textarea {
+  background: #f5f5f5;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  outline: none;
+  width: 100%;
+}
+.modal__input:focus,
+.modal__select:focus,
+.modal__textarea:focus {
+  border-color: var(--color-teal);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(30,173,181,0.12);
+}
+.modal__select { appearance: none; cursor: pointer; }
+.modal__textarea { resize: none; }
+
+/* Footer */
+.modal__foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem 2rem;
+  background: rgba(245,245,245,0.5);
+}
+.modal__cancel {
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--color-gray-text);
+  transition: color 0.3s;
+}
+.modal__cancel:hover { color: var(--color-dark); }
+.modal__submit {
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  background: var(--color-dark);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  transition: background 0.3s, transform 0.25s, box-shadow 0.3s;
+}
+.modal__submit:hover {
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 480px) {
+  .modal { border-radius: 1.5rem; }
+  .modal__grid { grid-template-columns: 1fr; }
+  .modal__head, .modal__body, .modal__foot { padding-left: 1.5rem; padding-right: 1.5rem; }
+}

@@ -1,0 +1,229 @@
+/* ============================================
+   HERO SECTION — Reference style
+   White bg, SOLID organic blobs, ★ stars, centered brand
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem 5vw 4rem;
+  overflow: hidden;
+}
+
+/* ---- SOLID SVG-LIKE blobs (no blur — reference has clean edges) ---- */
+.hero__blob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  /* Organic shapes via border-radius */
+}
+
+/* Magenta blob — top-right */
+.hero__blob--magenta {
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: var(--color-magenta);
+  border-radius: 55% 45% 62% 38% / 42% 55% 45% 58%;
+  top: -20%;
+  right: -15%;
+  animation: blob-morph 12s ease-in-out infinite alternate;
+}
+
+/* Teal blob — top-center */
+.hero__blob--teal {
+  width: 40vw;
+  height: 40vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: var(--color-teal);
+  border-radius: 38% 62% 45% 55% / 55% 42% 58% 45%;
+  top: -10%;
+  right: 22%;
+  animation: blob-morph 15s ease-in-out infinite alternate-reverse;
+}
+
+/* Orange blob — center-top overlap */
+.hero__blob--orange {
+  width: 35vw;
+  height: 35vw;
+  max-width: 420px;
+  max-height: 420px;
+  background: var(--color-orange);
+  border-radius: 60% 40% 55% 45% / 48% 62% 38% 52%;
+  top: -5%;
+  right: 32%;
+  animation: blob-morph 10s ease-in-out infinite;
+}
+
+/* Yellow blob — bottom-center */
+.hero__blob--yellow {
+  width: 60vw;
+  height: 50vw;
+  max-width: 750px;
+  max-height: 620px;
+  background: var(--color-yellow);
+  border-radius: 42% 58% 35% 65% / 55% 38% 62% 45%;
+  bottom: -30%;
+  right: -5%;
+  animation: blob-morph 18s ease-in-out infinite alternate;
+}
+
+/* Teal small blob  — bottom-left */
+.hero__blob--teal2 {
+  width: 30vw;
+  height: 30vw;
+  max-width: 350px;
+  max-height: 350px;
+  background: var(--color-teal);
+  border-radius: 55% 45% 65% 35% / 40% 60% 40% 60%;
+  bottom: -15%;
+  left: -5%;
+  animation: blob-morph 13s ease-in-out infinite alternate;
+}
+
+@keyframes blob-morph {
+  0%   { border-radius: 55% 45% 62% 38% / 42% 55% 45% 58%; }
+  33%  { border-radius: 38% 62% 45% 55% / 55% 42% 58% 45%; }
+  66%  { border-radius: 62% 38% 55% 45% / 48% 62% 38% 52%; }
+  100% { border-radius: 45% 55% 38% 62% / 60% 40% 55% 45%; }
+}
+
+/* ---- Stars scattered ---- */
+.hero__star {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+  animation: twinkle 2.5s ease-in-out infinite;
+  line-height: 1;
+  font-style: normal;
+}
+
+/* ---- Content ---- */
+.hero__content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* "MURALES Y DISEÑO" — Caveat, teal */
+.hero__line1 {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 700;
+  color: var(--color-teal);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* "by" script + "KALOVA" magenta on same line */
+.hero__line2 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1.1;
+  flex-wrap: wrap;
+}
+.hero__by {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+.hero__brand {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 700;
+  color: var(--color-magenta);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+/* Heart icon replacing the O in KALOVA */
+.hero__heart {
+  display: inline-block;
+  color: var(--color-orange);
+  font-size: 0.75em;
+  line-height: 1;
+  vertical-align: middle;
+  margin-top: -0.1em;
+}
+
+/* Phone + Instagram info */
+.hero__contact {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.hero__contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.hero__contact-row:hover { color: var(--color-teal); }
+.hero__contact-row svg { color: var(--color-teal); }
+
+/* CTA buttons */
+.hero__ctas {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.hero__btn {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.7rem 2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  text-decoration: none;
+  display: inline-block;
+}
+.hero__btn--primary {
+  background: var(--color-magenta);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(232,25,122,0.35);
+}
+.hero__btn--primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(232,25,122,0.5); }
+.hero__btn--secondary {
+  background: var(--color-yellow);
+  color: var(--color-dark);
+  box-shadow: 0 6px 20px rgba(245,224,42,0.4);
+}
+.hero__btn--secondary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(245,224,42,0.6); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { align-items: center; text-align: center; padding: 6rem 2rem 4rem; }
+  .hero__line2 { justify-content: center; }
+  .hero__contact { align-items: center; }
+  .hero__ctas { justify-content: center; }
+  .hero__blob--magenta { width: 80vw; height: 80vw; right: -30%; top: -10%; }
+  .hero__blob--teal     { width: 60vw; height: 60vw; right: 10%; top: -5%; }
+  .hero__blob--orange   { width: 50vw; height: 50vw; right: 20%; }
+  .hero__blob--yellow   { width: 90vw; height: 70vw; bottom: -20%; right: -10%; }
+  .hero__blob--teal2    { display: none; }
+}

@@ -1,0 +1,160 @@
+/* ============================================
+   NAVBAR — Kalova Reference Style
+   Always yellow, Caveat font, teal text, stars
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--color-yellow);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.navbar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Desktop links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__link {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var( --color-dark);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.25s, transform 0.2s;
+  position: relative;
+}
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: var(--color-magenta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.navbar__link:hover { color: var(--color-magenta); }
+.navbar__link:hover::after { transform: scaleX(1); }
+
+/* Logo — hidden or minimal; nav IS the identity */
+.navbar__logo {
+  display: none; /* In reference design the full header strip IS the navbar */
+}
+
+/* Hamburger (right side in reference) */
+.navbar__burger-wrap {
+  display: none;
+}
+.navbar__burger-icon {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.navbar__burger-icon span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--color-teal);
+  border-radius: 3px;
+  transition: transform 0.3s, opacity 0.3s, background 0.3s;
+}
+.navbar__burger-icon.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); background: var( --color-dark); }
+.navbar__burger-icon.open span:nth-child(2) { opacity: 0; }
+.navbar__burger-icon.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); background: var( --color-dark); }
+
+/* COTIZAR button (end of links) */
+.navbar__cta {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-teal);
+  background: none;
+  border: 2.5px solid var(--color-teal);
+  border-radius: 50px;
+  padding: 0.3rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+  text-transform: uppercase;
+}
+.navbar__cta:hover {
+  background: var(--color-teal);
+  color: #fff;
+}
+
+/* Mobile full-screen overlay */
+.navbar__mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--color-yellow);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.navbar__mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.navbar__mobile-link {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.25s, transform 0.25s;
+}
+.navbar__mobile-link:hover { color: var( --color-dark); transform: scale(1.05); }
+.navbar__mobile-cta {
+  margin-top: 1rem;
+  padding: 0.8rem 2.5rem;
+  border-radius: 50px;
+  background: var( --color-dark);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.navbar__mobile-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(232,25,122,0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar__links         { display: none; }
+  .navbar__burger-wrap   { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; background: none; border: none; }
+}

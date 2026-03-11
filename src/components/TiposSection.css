@@ -1,0 +1,132 @@
+/* ============================================
+   TIPOS SECTION — Kalova UX/UI
+   3 cards: Vinil (orange), Mixtos (magenta), Pintura (teal)
+   ============================================ */
+
+.tipos {
+  padding: 5rem 1.5rem;
+  background: var(--color-gray-light);
+  position: relative;
+  z-index: 1;
+}
+
+.tipos__header {
+  background: var(--color-yellow);
+  padding: 1.2rem 3rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+}
+.tipos__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-teal);
+  letter-spacing: 2px;
+  margin: 0;
+  line-height: 1;
+}
+
+.tipos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card base */
+.tipo-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  transition: transform 0.4s, box-shadow 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+.tipo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.13);
+}
+
+/* Colored top header per type */
+.tipo-card__head {
+  padding: 1.6rem 2rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.tipo-card--vinil   .tipo-card__head { background: var(--color-orange); }
+.tipo-card--mixto   .tipo-card__head { background: var(--color-magenta); }
+.tipo-card--pintura .tipo-card__head { background: var(--color-teal); }
+
+.tipo-card__head-name {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+}
+.tipo-card__head-icon {
+  width: 36px;
+  height: 36px;
+  color: rgba(255,255,255,0.8);
+  flex-shrink: 0;
+}
+
+/* Image */
+.tipo-card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.tipo-card__body {
+  padding: 1.8rem 2rem;
+  flex: 1;
+}
+.tipo-card__desc {
+  font-family: var(--font-body);
+  color: var(--color-gray-text);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  margin: 0 0 1.2rem;
+}
+.tipo-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tipo-card__feature {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-dark);
+  font-weight: 700;
+}
+.tipo-card__feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.tipo-card--vinil   .tipo-card__feature-dot { background: var(--color-orange); }
+.tipo-card--mixto   .tipo-card__feature-dot { background: var(--color-magenta); }
+.tipo-card--pintura .tipo-card__feature-dot { background: var(--color-teal); }
+
+@media (max-width: 480px) {
+  .tipos__header { padding: 1rem 1.5rem; flex-direction: column; align-items: flex-start; }
+}

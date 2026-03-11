@@ -1,0 +1,74 @@
+/* ============================================
+   WHATSAPP FLOAT BUTTON — Kalova UX/UI
+   Fixed bottom-right, green, pulse animation
+   ============================================ */
+
+.wa-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 200;
+}
+
+/* Pulse ring */
+.wa-float__ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 3px solid #25D366;
+  opacity: 0;
+  animation: pulse-ring 2.5s ease-out infinite;
+}
+.wa-float__ring:nth-child(2) { animation-delay: 0.8s; }
+
+/* Button */
+.wa-float__btn {
+  position: relative;
+  z-index: 1;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.45);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+.wa-float__btn:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow: 0 12px 32px rgba(37,211,102,0.55);
+}
+
+/* Tooltip */
+.wa-float__tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-dark);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.wa-float__tooltip::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--color-dark);
+}
+.wa-float:hover .wa-float__tooltip { opacity: 1; }
