@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CotizacionSection.css';
 
 // Stars for cotizacion (matching reference image positions)
@@ -46,58 +46,38 @@ const STEPS = [
   },
 ];
 
-// CotizacionSection — matches reference: yellow header, white body, centered steps, stars
-const CotizacionSection = ({ onFormClick }) => (
-  <section id="cotizacion" className="cotizacion" aria-labelledby="cot-title">
-    {/* Yellow header strip */}
-    <div className="cotizacion__header-strip">
-      <h2 className="cotizacion__header-title" id="cot-title">Cotización</h2>
-    </div>
+// CotizacionSection — Interactive vertical layout
+const CotizacionSection = ({ onFormClick }) => {
+  return (
+    <section id="cotizacion" className="cotizacion" aria-labelledby="cot-title">
+      <div className="cotizacion__header">
+        <h2 className="cotizacion__header-title" id="cot-title">Para realizar tu cotización...</h2>
+        <p className="cotizacion__intro">Asegúrate de tener a mano la siguiente información:</p>
+      </div>
 
-    {/* Scattered stars */}
-    {STARS.map((s, i) => (
-      <i
-        key={i}
-        className="cotizacion__star"
-        aria-hidden="true"
-        style={{
-          top: s.top, left: s.left, right: s.right, bottom: s.bottom,
-          fontSize: s.size, color: s.color, animationDelay: s.delay,
-        }}
-      >★</i>
-    ))}
-
-    <div className="cotizacion__body">
-      <p className="cotizacion__intro">
-        Para realizar tu cotización<br />
-        necesitamos la siguiente información:
-      </p>
-
-      <div className="cotizacion__steps">
+      <div className="cotizacion__steps-grid">
         {STEPS.map((s, i) => (
-          <div className="cotizacion__step" key={i}>
-            <p className="cotizacion__step-name">{s.name}</p>
-            {s.desc && <p className="cotizacion__step-desc">{s.desc}</p>}
-            {s.hasStar && <i className="cotizacion__star-divider" aria-hidden="true">★</i>}
+          <div className="cotizacion__step-card" key={i}>
+            <div className="cotizacion__step-indicator">{i + 1}</div>
+            <div className="cotizacion__step-content">
+              <h3 className="cotizacion__step-name">{s.name.replace(/^\d+\.\s*/, '')}</h3>
+              {s.desc && <p className="cotizacion__step-desc">{s.desc}</p>}
+            </div>
           </div>
         ))}
       </div>
 
-      {/* WhatsApp CTA — matches reference */}
-      <a
-        id="cotizacion-wa-btn"
-        href="https://wa.me/50672799927?text=Hola,%20quiero%20cotizar%20un%20mural"
-        target="_blank"
-        rel="noreferrer"
-        className="cotizacion__wa"
-        aria-label="Enviar información por WhatsApp al 7279 99 27"
-      >
-        <span className="cotizacion__wa-row">
-          Envíala al WhatsApp 7279 99 27
-        </span>
-      </a>
-    </div>
-  </section>
-);
+      <div className="cotizacion__cta-wrapper visible">
+        <h3 className="cotizacion__cta-title">¿Tienes toda la información lista?</h3>
+        <button 
+          className="cotizacion__cta-btn" 
+          onClick={onFormClick}
+        >
+          ¡Deseo Cotizar Ya!
+        </button>
+      </div>
+    </section>
+  );
+};
 
 export default CotizacionSection;

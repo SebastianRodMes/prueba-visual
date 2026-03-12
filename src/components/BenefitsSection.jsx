@@ -59,7 +59,9 @@ const BenefitsSection = () => (
     <div className="benefits__grid">
       {BENEFITS.map(({ Icon, name, desc }) => (
         <article className="benefit-card" key={name}>
-          <Icon />
+          <div className="benefit-card__icon-wrapper">
+            <Icon />
+          </div>
           <h3 className="benefit-card__name">{name}</h3>
           <p className="benefit-card__desc">{desc}</p>
         </article>

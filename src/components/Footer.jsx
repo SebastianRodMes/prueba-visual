@@ -29,9 +29,11 @@ const Footer = () => (
     <div className="footer__inner">
       {/* Brand column */}
       <div className="footer__brand">
-        <div className="footer__brand-logo">
-          <span>Kalo</span><span>va</span>
-        </div>
+        <img 
+          src="https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/logokalovasolo.png?alt=media&token=e6e25d72-3797-4cf4-b1aa-936e1957011f" 
+          alt="Kalova Logo" 
+          className="footer__brand-img" 
+        />
         <p className="footer__brand-script">Arte que transforma</p>
         <div className="footer__socials">
           <a

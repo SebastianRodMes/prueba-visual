@@ -55,15 +55,27 @@ const TiposSection = () => (
     <div className="tipos__grid">
       {TIPOS.map(({ id, Icon, name, desc, features, img }) => (
         <article className={`tipo-card tipo-card--${id}`} key={id}>
-          <div className="tipo-card__head">
-            <Icon />
-            <h3 className="tipo-card__head-name">{name}</h3>
+          <div className="tipo-card__img-wrapper">
+            <img
+              src={img}
+              alt={`Ejemplo de mural tipo ${name}`}
+              className="tipo-card__img"
+            />
+            {/* Overlay animado con el Logo */}
+            <div className="tipo-card__anim-overlay">
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/logokalovasolo.png?alt=media&token=e6e25d72-3797-4cf4-b1aa-936e1957011f" 
+                alt="Kalova" 
+                className="tipo-card__hover-logo"
+              />
+            </div>
+            
+            {/* Header flotando sobre la imagen */}
+            <div className="tipo-card__head">
+              <Icon />
+              <h3 className="tipo-card__head-name">{name}</h3>
+            </div>
           </div>
-          <img
-            src={img}
-            alt={`Ejemplo de mural tipo ${name}`}
-            className="tipo-card__img"
-          />
           <div className="tipo-card__body">
             <p className="tipo-card__desc">{desc}</p>
             <ul className="tipo-card__features">

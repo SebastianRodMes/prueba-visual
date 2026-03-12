@@ -21,26 +21,25 @@
 .footer__inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem 2.5rem;
+  padding: 1.5rem 2rem 1rem; /* Padding súper compacto */
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1fr 1fr; /* Igualamos columnas para balancear el menor tamaño del logo */
+  gap: 1.5rem;
 }
 
 /* Brand column */
-.footer__brand-logo {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  letter-spacing: 3px;
-  margin-bottom: 1rem;
+.footer__brand-img {
+  width: 160px; /* Mucho más pequeño y delicado */
+  height: auto;
+  margin-left: -2rem;
+  margin-bottom: 0.2rem;
+  display: block;
 }
-.footer__brand-logo span:first-child { color: var(--color-magenta); }
-.footer__brand-logo span:last-child  { color: var(--color-teal); }
 .footer__brand-script {
   font-family: var(--font-script);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: rgba(255,255,255,0.45);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 }
 .footer__socials {
   display: flex;

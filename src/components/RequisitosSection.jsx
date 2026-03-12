@@ -11,12 +11,15 @@ const STARS = [
   { bottom: '8%', right: '10%',size: '1rem',  color: '#F5E02A', delay: '0.9s' },
 ];
 
-// RequisitosSection — matches reference: yellow strip, white body, centered Caveat text, stars
+// RequisitosSection — Advanced Glassmorphism UI
 const RequisitosSection = () => (
   <section id="requisitos" className="requisitos" aria-labelledby="req-title">
-    {/* Yellow header strip */}
-    <div className="requisitos__header-strip">
-      <h2 className="requisitos__header-title" id="req-title">Requisitos</h2>
+    {/* Header flotante transparente */}
+    <div className="requisitos__header">
+      <h2 className="requisitos__header-title" id="req-title">Requisitos Mínimos</h2>
+      <p className="requisitos__intro">
+        Para asegurar un acabado premium, tu espacio debe cumplir con:
+      </p>
     </div>
 
     {/* Scattered stars */}
@@ -33,49 +36,55 @@ const RequisitosSection = () => (
     ))}
 
     <div className="requisitos__body">
-      <p className="requisitos__intro">
-        Para realizar tu mural<br />
-        ten en cuenta los siguientes puntos
-      </p>
+      <div className="requisitos__cards-grid">
+        
+        {/* Card 1: Vinil / Mixto */}
+        <article className="req-card req-card--vinil">
+          <div className="req-card__head">
+            <h3 className="req-card__title">Si tu mural es de<br/><span>Vinil o Mixto</span></h3>
+          </div>
+          <div className="req-card__content">
+            <ul className="req-card__list">
+              <li>Tu pared debe ser <strong>100% lisa</strong>, sin granulos ni textura.</li>
+              <li>Debe estar completamente <strong>libre de humedad</strong>.</li>
+              <li>Superficie limpia: libre de <strong>polvo, grasa y suciedad</strong>.</li>
+              <li>Pintura base <strong>no debe ser de aceite</strong>.</li>
+              <li>La base <strong>no debe ser siliconizada</strong> (textura polvoza).</li>
+              <li>La estructura general debe estar <strong>en perfecto estado</strong>.</li>
+            </ul>
+          </div>
+        </article>
 
-      {/* Vinil / Mixto */}
-      <p className="requisitos__sub">
-        Si haz optado por mural con vinil pegatinas o mixto:
-      </p>
-      <ul className="requisitos__list">
-        <li className="requisitos__item">Tu pared debe ser 100% lisa, sin granulos, grumos o textura.</li>
-        <li className="requisitos__item">Libre de humedad</li>
-        <li className="requisitos__item">Libre de polvo</li>
-        <li className="requisitos__item">Libre de grasa o suciedad</li>
-        <li className="requisitos__item">Y en perfecto estado</li>
-      </ul>
-      <ul className="requisitos__list">
-        <li className="requisitos__item">Pintura base &gt; No debe ser base aceite</li>
-        <li className="requisitos__item">No debe ser siliconizada (textura polvoza)</li>
-      </ul>
+        {/* Card 2: Pintura / Mixto */}
+        <article className="req-card req-card--pintura">
+          <div className="req-card__head">
+            <h3 className="req-card__title">Si tu mural es de<br/><span>Pintura o Mixto</span></h3>
+          </div>
+          <div className="req-card__content">
+            <ul className="req-card__list">
+              <li>Superficie e interior 100% <strong>libre de humedad</strong>.</li>
+              <li>Estructura de la pared <strong>en perfecto estado</strong> mecánico.</li>
+              <li>Deberás <strong>indicar si está en exteriores</strong> (para prever selladores).</li>
+              <li>La base <strong>no debe ser pintura en aceite</strong> (indicar particularidades de la pintura actual).</li>
+            </ul>
+          </div>
+        </article>
 
-      {/* Mixto / Pintura */}
-      <p className="requisitos__sub">
-        Si haz optado por mural mixto o con pintura:
-      </p>
-      <ul className="requisitos__list">
-        <li className="requisitos__item">Tu pared debe estar libre de humedad</li>
-        <li className="requisitos__item">En perfecto estado</li>
-        <li className="requisitos__item">Indicar si está en exteriores</li>
-        <li className="requisitos__item">Y no ser la base pintura en aceite (indicar alguna particularidad)</li>
-      </ul>
+      </div>
 
       {/* WhatsApp CTA */}
-      <a
-        id="requisitos-wa-btn"
-        href="https://wa.me/50672799927?text=Hola,%20tengo%20los%20requisitos%20listos"
-        target="_blank"
-        rel="noreferrer"
-        className="requisitos__wa"
-        aria-label="Enviar información por WhatsApp al 7279 99 27"
-      >
-        Envíala al WhatsApp 7279 99 27
-      </a>
+      <div className="requisitos__cta-wrapper">
+        <a
+          id="requisitos-wa-btn"
+          href="https://wa.me/50672799927?text=Hola,%20mi%20pared%20cumple%20con%20los%20requisitos%20y%20quiero%20crear%20magia%20juntos"
+          target="_blank"
+          rel="noreferrer"
+          className="requisitos__wa-btn"
+          aria-label="Confirmar requisitos por WhatsApp al +506 7279 9927"
+        >
+          ¡Mi pared cumple con todo!
+        </a>
+      </div>
     </div>
   </section>
 );

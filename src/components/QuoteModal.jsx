@@ -11,27 +11,43 @@ const QuoteModal = ({ isOpen, onClose }) => {
       <div className="modal-backdrop" onClick={onClose} aria-hidden="true"></div>
 
       <div className="modal">
-        {/* Dark header */}
-        <div className="modal__head">
-          <div className="modal__head-blob1" aria-hidden="true"></div>
-          <div className="modal__head-blob2" aria-hidden="true"></div>
-          <div className="modal__head-inner">
-            <div>
-              <h2 className="modal__title" id="modal-title">
-                Tu Visión.<br /><span>Nuestro Lienzo.</span>
-              </h2>
-              <p className="modal__subtitle">Detalla tu idea a continuación.</p>
-            </div>
-            <button
-              id="modal-close-btn"
-              className="modal__close"
-              onClick={onClose}
-              aria-label="Cerrar formulario"
-            >
-              ×
-            </button>
-          </div>
+        {/* Animated Background Blobs */}
+        <div className="modal__blobs" aria-hidden="true">
+          <div className="modal__blob modal__blob--1"></div>
+          <div className="modal__blob modal__blob--2"></div>
+          <div className="modal__blob modal__blob--3"></div>
+          <div className="modal__blob modal__blob--4"></div>
         </div>
+
+        {/* Content wrapper with glassmorphism */}
+        <div className="modal__content-wrapper">
+          {/* Header */}
+          <div className="modal__head">
+            {/* Animated Logo */}
+            <div className="modal__logo-wrapper">
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/logokalovasolo.png?alt=media&token=e6e25d72-3797-4cf4-b1aa-936e1957011f" 
+                alt="Kalova" 
+                className="modal__animated-logo" 
+              />
+            </div>
+            <div className="modal__head-inner">
+              <div>
+                <h2 className="modal__title" id="modal-title">
+                  Tu Visión.<br /><span>Nuestro Lienzo.</span>
+                </h2>
+                <p className="modal__subtitle">Detalla tu idea a continuación.</p>
+              </div>
+              <button
+                id="modal-close-btn"
+                className="modal__close"
+                onClick={onClose}
+                aria-label="Cerrar formulario"
+              >
+                ×
+              </button>
+            </div>
+          </div>
 
         {/* Form */}
         <form
@@ -84,6 +100,7 @@ const QuoteModal = ({ isOpen, onClose }) => {
             Enviar Solicitud
           </button>
         </div>
+        </div> {/* End of .modal__content-wrapper */}
       </div>
     </div>
   );

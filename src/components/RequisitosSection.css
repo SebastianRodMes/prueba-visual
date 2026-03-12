@@ -1,96 +1,173 @@
 /* ============================================
-   REQUISITOS SECTION — Reference style
-   Yellow header strip, white bg, centered content, ★ stars
+   REQUISITOS SECTION — Glassmorphic Layout
+   Transparent bg, interactive cards, bold CTA
    ============================================ */
 
 .requisitos {
   position: relative;
-  background: #fff;
+  background: transparent;
+  padding: 6rem 1.5rem;
   overflow: hidden;
-}
-
-/* Yellow header strip */
-.requisitos__header-strip {
-  background: var(--color-yellow);
-  padding: 1rem 2.5rem;
-}
-.requisitos__header-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--color-dark);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0;
-}
-
-/* Stars */
-.requisitos__star {
-  position: absolute;
-  pointer-events: none;
-  animation: twinkle 2.5s ease-in-out infinite;
-  font-style: normal;
-  line-height: 1;
-}
-
-/* Body */
-.requisitos__body {
-  padding: 3.5rem 2rem 3rem;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
   z-index: 1;
 }
 
-/* Intro */
+/* Header */
+.requisitos__header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.requisitos__header-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  letter-spacing: 2px;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+  text-transform: none;
+}
 .requisitos__intro {
-  font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-dark);
-  line-height: 1.4;
-  margin-bottom: 2rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--color-gray-text);
+  margin: 0;
 }
 
-/* Sub-section heading (e.g. "Si haz optado por Vinil...") */
-.requisitos__sub {
-  font-family: var(--font-heading);
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-dark);
-  margin: 2rem 0 0.8rem;
+/* Stars decoration */
+.requisitos__star {
+  position: absolute;
+  pointer-events: none;
+  animation: twinkle 3s ease-in-out infinite alternate;
+  font-style: normal;
+  line-height: 1;
+  z-index: 0;
 }
 
-/* Item rows */
-.requisitos__list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem;
+/* Base Layout Body */
+.requisitos__body {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid for the 2 requirement cards */
+.requisitos__cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+/* Interactive Cards */
+.req-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
 }
-.requisitos__item {
-  font-family: var(--font-heading);
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  text-transform: uppercase;
-  color: var(--color-dark);
-  line-height: 1.4;
+.req-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.85);
 }
 
-/* WhatsApp CTA */
-.requisitos__wa {
-  display: block;
-  margin-top: 2.5rem;
-  font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 2.8vw, 1.8rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-dark);
-  text-decoration: none;
-  transition: color 0.25s;
+.req-card__head {
+  padding: 2.5rem 2.5rem 1.5rem;
+  border-bottom: 2px solid rgba(0,0,0,0.05);
 }
-.requisitos__wa:hover { color: var(--color-magenta); }
+.req-card--vinil .req-card__head {
+  background: linear-gradient(135deg, rgba(247,148,29,0.15) 0%, transparent 100%);
+}
+.req-card--pintura .req-card__head {
+  background: linear-gradient(135deg, rgba(30,173,181,0.15) 0%, transparent 100%);
+}
+
+.req-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+.req-card__title span {
+  font-size: 2.2rem;
+  display: block;
+  margin-top: 0.3rem;
+}
+.req-card--vinil .req-card__title span { color: var(--color-orange); }
+.req-card--pintura .req-card__title span { color: var(--color-teal); }
+
+.req-card__content {
+  padding: 2rem 2.5rem 3rem;
+  flex: 1;
+}
+.req-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.req-card__list li {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--color-gray-text);
+  line-height: 1.5;
+  padding-left: 2rem;
+}
+.req-card__list li strong {
+  color: var(--color-dark);
+}
+.req-card__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+.req-card--vinil .req-card__list li::before { color: var(--color-magenta); }
+.req-card--pintura .req-card__list li::before { color: var(--color-teal); }
+
+/* Premium CTA */
+.requisitos__cta-wrapper {
+  text-align: center;
+}
+.requisitos__wa-btn {
+  display: inline-block;
+  background: var(--color-dark);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.requisitos__wa-btn:hover {
+  transform: translateY(-5px) scale(1.03);
+  background: var(--color-teal);
+  box-shadow: 0 15px 40px rgba(30,173,181,0.4);
+}
+
+@media (max-width: 768px) {
+  .requisitos { padding: 4rem 1.5rem; }
+  .requisitos__cards-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .req-card__head { padding: 2rem; }
+  .req-card__content { padding: 1.5rem 2rem 2.5rem; }
+}
