@@ -45,21 +45,11 @@ const HeroSection = ({ onCotizarClick }) => (
     {/* Brand identity — left-aligned (matches reference) */}
     <div className="hero__content">
       {/* Line 1: MURALES Y DISEÑO in teal Caveat */}
-      <h1 className="hero__line1">Murales y Diseño</h1>
+   
 
-      {/* Line 2: "by" script + KALOVA magenta with heart ♥ */}
+      {/* Line 2: "by" script + KALOVA logo image */}
       <div className="hero__line2" aria-label="by Kalova">
-        <span className="hero__by">by</span>
-        <span className="hero__brand">
-          KAL
-          <span className="hero__heart" aria-hidden="true">
-            {/* Heart SVG replacing the "O" */}
-            <svg width="0.6em" height="0.6em" viewBox="0 0 24 24" fill="var(--color-orange)" stroke="var(--color-orange)" strokeWidth="0.5">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </span>
-          VA
-        </span>
+        <img src="/imgs/logo.png" alt="Kalova Logo" className="hero__brand-img" />
       </div>
 
       {/* Contact info */}

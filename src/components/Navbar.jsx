@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 // Navbar — always yellow, Caveat font, teal uppercase links (matches reference image)
@@ -13,11 +14,11 @@ const Navbar = ({ onCotizarClick }) => {
 
           {/* Desktop links — centered layout as in reference */}
           <ul className="navbar__links">
-            <li><a href="#murales"    className="navbar__link">Murales</a></li>
-            <li><a href="#tipos"      className="navbar__link">Tipos</a></li>
-            <li><a href="#cotizacion" className="navbar__link">Cotización</a></li>
-            <li><a href="#requisitos" className="navbar__link">Requisitos</a></li>
-            <li><a href="#portafolio" className="navbar__link">Proyectos</a></li>
+            <li><NavLink to="/"           className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>Murales</NavLink></li>
+            <li><NavLink to="/tipos"      className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>Tipos</NavLink></li>
+            <li><NavLink to="/cotizacion" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>Cotización</NavLink></li>
+            <li><NavLink to="/requisitos" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>Requisitos</NavLink></li>
+            <li><NavLink to="/portafolio" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>Proyectos</NavLink></li>
           </ul>
 
           {/* Hamburger icon (right side, teal bars as in reference) */}
@@ -40,11 +41,11 @@ const Navbar = ({ onCotizarClick }) => {
 
       {/* Mobile overlay */}
       <div className={`navbar__mobile-menu ${menuOpen ? 'open' : ''}`} aria-hidden={!menuOpen}>
-        <a href="#murales"    className="navbar__mobile-link" onClick={close}>Murales</a>
-        <a href="#tipos"      className="navbar__mobile-link" onClick={close}>Tipos</a>
-        <a href="#cotizacion" className="navbar__mobile-link" onClick={close}>Cotización</a>
-        <a href="#requisitos" className="navbar__mobile-link" onClick={close}>Requisitos</a>
-        <a href="#portafolio" className="navbar__mobile-link" onClick={close}>Proyectos</a>
+        <NavLink to="/"           className="navbar__mobile-link" onClick={close}>Murales</NavLink>
+        <NavLink to="/tipos"      className="navbar__mobile-link" onClick={close}>Tipos</NavLink>
+        <NavLink to="/cotizacion" className="navbar__mobile-link" onClick={close}>Cotización</NavLink>
+        <NavLink to="/requisitos" className="navbar__mobile-link" onClick={close}>Requisitos</NavLink>
+        <NavLink to="/portafolio" className="navbar__mobile-link" onClick={close}>Proyectos</NavLink>
         <button
           className="navbar__mobile-cta"
           onClick={() => { onCotizarClick(); close(); }}

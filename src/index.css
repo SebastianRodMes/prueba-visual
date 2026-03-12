@@ -3,10 +3,20 @@
 /* ============================================
    KALOVA BRAND — CSS CUSTOM PROPERTIES
    ============================================ */
+
+
+   @font-face {
+  font-family: 'Paper Flowers';
+  src: url('../typography/Paper Flowers.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ayuda a que la página cargue más rápido */
+}
+
 :root {
-  --font-heading: 'Caveat', cursive;
-  --font-script:  'Dancing Script', cursive;
-  --font-body:    'Nunito', sans-serif;
+  --font-heading: 'Paper Flowers';
+  --font-script:  'Paper Flowers';
+  --font-body:    'Paper Flowers';
 
   --color-magenta:    #E8197A;
   --color-orange:     #F7941D;
@@ -28,7 +38,7 @@
   --color-brand-yellow:  #F5E02A;
   --color-brand-teal:    #1EADB5;
   --color-brand-dark:    #1A1A1A;
-  --font-heading:        'Caveat', cursive;
+  --font-heading:        'Paper Flowers', cursive;
   --font-script:         'Dancing Script', cursive;
   --font-body:           'Nunito', sans-serif;
 

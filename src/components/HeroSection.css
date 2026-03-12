@@ -126,40 +126,21 @@
   margin: 0;
 }
 
-/* "by" script + "KALOVA" magenta on same line */
+/* Logo style replacing old text */
 .hero__line2 {
   display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  line-height: 1.1;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: -1.5rem; /* Pega el logo a "MURALES Y DISEÑO" */
 }
-.hero__by {
-  font-family: var(--font-script);
-  font-size: clamp(2.5rem, 5vw, 5rem);
-  color: var(--color-dark);
-  font-weight: 700;
-}
-.hero__brand {
-  font-family: var(--font-heading);
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  font-weight: 700;
-  color: var(--color-magenta);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-/* Heart icon replacing the O in KALOVA */
-.hero__heart {
-  display: inline-block;
-  color: var(--color-orange);
-  font-size: 0.75em;
-  line-height: 1;
-  vertical-align: middle;
-  margin-top: -0.1em;
+
+.hero__brand-img {
+  width: clamp(500px, 1000vw, 2000px); /* Esto hace que controle su tamaño de forma inteligente sin topes artificiales */
+  height: auto;
+  object-fit: contain;
+  margin-left: -25rem; /* Alineado al borde del H1 de arriba y los links de abajo */
+  margin-top: -10rem;
+  /* Mantén esto para que el padding inferior de hero no colapse */
+  margin-bottom: -25rem; 
 }
 
 /* Phone + Instagram info */
@@ -218,7 +199,18 @@
 /* Responsive */
 @media (max-width: 768px) {
   .hero { align-items: center; text-align: center; padding: 6rem 2rem 4rem; }
-  .hero__line2 { justify-content: center; }
+  .hero__line2 { justify-content: center; margin-top: 0; }
+  
+  /* Ajuste específico para el logo en vista móvil */
+  .hero__brand-img {
+    width: 100vw;           /* Que tome casi todo el ancho de la pantalla */
+    min-width: unset;      /* Quitar la restricción de mínimo */
+    margin-left: 0;        /* Resetear márgenes extremos de escritorio */
+    margin-top: -1rem;     /* Pequeño ajuste hacia arriba */
+    margin-bottom: -5rem;  /* Pequeño ajuste hacia abajo */
+        transform: scale(1.8);
+  }
+
   .hero__contact { align-items: center; }
   .hero__ctas { justify-content: center; }
   .hero__blob--magenta { width: 80vw; height: 80vw; right: -30%; top: -10%; }
