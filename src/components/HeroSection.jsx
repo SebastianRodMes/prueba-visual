@@ -49,7 +49,7 @@ const HeroSection = ({ onCotizarClick }) => (
 
       {/* Line 2: "by" script + KALOVA logo image */}
       <div className="hero__line2" aria-label="by Kalova">
-        <img src="/imgs/logo.png" alt="Kalova Logo" className="hero__brand-img" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/logo.png?alt=media&token=cada8b80-5b85-4bbe-82bb-43d49ec1aeba" alt="Kalova Logo" className="hero__brand-img" />
       </div>
 
       {/* Contact info */}

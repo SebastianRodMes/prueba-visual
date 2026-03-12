@@ -21,7 +21,7 @@ const IconPaint = () => (
 const TIPOS = [
   {
     id: 'vinil',
-    img: '/imgs/mural1.png',
+    img: 'https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/mural1.png?alt=media&token=046e2e74-3608-4b78-a229-347fa2ad394a',
     Icon: IconFilm,
     name: 'Vinil',
     desc: 'Gráficos adhesivos de alta resolución para interiores y exteriores. Durabilidad garantizada y colores vibrantes que no destiñen.',
@@ -29,7 +29,7 @@ const TIPOS = [
   },
   {
     id: 'mixto',
-    img: '/imgs/mural2.png',
+    img: 'https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/mural2.png?alt=media&token=9128d351-ea1e-43a3-8d17-e5ce9dc08107',
     Icon: IconLayers,
     name: 'Mixtos',
     desc: 'La combinación perfecta de vinil y pintura artística. Texturas únicas que fusionan técnicas para un resultado extraordinario.',
@@ -37,7 +37,7 @@ const TIPOS = [
   },
   {
     id: 'pintura',
-    img: '/imgs/mural3.png',
+    img: 'https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/mural3.png?alt=media&token=ece1d6dd-707f-4af8-90f1-11f9551cd008',
     Icon: IconPaint,
     name: 'Pintura',
     desc: 'Arte mural pintado a mano por artistas calificados. Desde murales fotorrealistas hasta estilos abstractos y decorativos.',

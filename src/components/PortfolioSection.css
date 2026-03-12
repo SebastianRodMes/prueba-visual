@@ -71,7 +71,7 @@
 .portfolio__card--main .card-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/imgs/mural4.png');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/texastrailerscrweb.firebasestorage.app/o/mural4.png?alt=media&token=6a4ef5e9-fce7-4fa3-a9b7-35b6b9a55a29');
   background-size: cover;
   background-position: center;
   mix-blend-mode: overlay;
